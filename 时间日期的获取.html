@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+window.onload = function (){
+ var oP = document.getElementsByTagName('p')[0];
+ setInterval(fnTime,1000);
+ fnTime();
+ 	 
+ function fnTime(){
+
+ var MyTime = new Date();
+ 
+ var iYear = MyTime.getFullYear();
+ var iMonth = MyTime.getMonth() + 1;
+ var iDate = MyTime.getDate();
+ var iWeek = MyTime.getDay();
+ var iHouse = MyTime.getHours();
+ var iMin = MyTime.getMinutes();
+ var iSec = MyTime.getSeconds();
+ 
+ if(iWeek == 0) iWeek = '星期日';
+ if(iWeek == 1) iWeek = '星期一';
+ if(iWeek == 2) iWeek = '星期二';
+ if(iWeek == 3) iWeek = '星期三';
+ if(iWeek == 4) iWeek = '星期四';
+ if(iWeek == 5) iWeek = '星期五';
+ if(iWeek == 6) iWeek = '星期六';
+
+ var str = '';
+ str = iYear +'年 '+ iMonth +'月 '+ iDate +'日 '+ iWeek +' '+ Two(iHouse) +'点 '+ Two(iMin) +'分 '+ Two(iSec) +'秒';
+ oP.innerHTML = str;
+	 }
+	 
+ function Two(n){
+ return n<10?'0' + n:'' + n;
+	 }
+ 
+ 
+}
+</script>
+</head>
+<p style="font-size:60px;"></p>
+<body>
+
+
+</body>
+</html>

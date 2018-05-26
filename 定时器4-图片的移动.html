@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+window.onload = function (){
+ var oBox = document.getElementById('box');
+ var aInput = document.getElementsByTagName('input');
+ var timer = null;
+ aInput[1].onclick = function (){
+ /*clearInterval(timer);
+   timer = setInterval(function(){
+	 var spead = parseInt(oBox.style.left) + 20;
+	 if(spead>900){
+		 spead = 900;
+		 }
+	 oBox.style.left = spead + 'px';
+	 if(spead == 900){
+		 clearInterval(timer);
+		 }	 
+	 },30);*/
+	 fn1(20,900);
+	 }	 
+ aInput[0].onclick = function (){
+	fn1(-20,10)
+	 }
+ function fn1( num,sp ){
+     clearInterval(timer);
+ timer = setInterval(function(){
+ 	 var spead = parseInt(oBox.style.left) + num;
+	 if(spead < sp && num < 0){
+		 spead = sp;
+		 }
+	 if(spead > sp && num > 0){
+		 spead = sp;
+		 }
+	 oBox.style.left = spead + 'px';
+	 if(spead == sp){
+		 clearInterval(timer);
+		 }	 
+	 },30); 
+	  }
+}
+</script>
+</head>
+
+<body>
+<input type="button" value="后退" />
+<input type="button" value="前进" />
+<div id="box" style="height:100px; width:100px; background:#F00; position:absolute; left:10px; top:40px;" >
+
+</div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+*{ margin:0; padding:0; list-style:none;}
+#box{ height:450px; width:365px; margin:auto auto; }
+#main{ height:450px; width:365px; position:relative; margin-top:32px;border:1px solid #000;}
+#main img{height:450px; width:365px; background:url(img/loader_ico.gif) no-repeat center;}
+#u{ width:25px; height:auto; float:left; position:absolute; right:420px; top:40px;}
+#u li{ width:25px; height:25px; margin-bottom:6px; background:#000;}
+</style>
+<script>
+window.onload = function (){
+ var omain = document.getElementById('main');
+ var aimg = document.getElementsByTagName('img')[0];
+ var oul = document.getElementById('u');
+ var li = oul.getElementsByTagName('li');
+ var num = 0;
+ var timer = null;
+ var arr = ['img/1.jpg','img/2.jpg','img/3.jpg','img/4.jpg'];
+ aimg.src = arr[num];
+ li[0].style.background = 'yellow';
+ 
+/* function autoPlay(){
+	 timer = setInterval(function(){
+		 num++;
+		 num%=arr.length;
+		 fn1();
+		 },3000)
+		 setTimeout(autoPlay,3000);
+		 omain.onmouseover = function(){
+			 clearTimeout(timer);
+			 }
+		omain.onmouseout = autoPlay;
+	 }*/
+	 
+	 
+ function fn1(){
+ for( var i=0; i<arr.length; i++){
+	 li[i].index = i;
+	 li[i].onclick = function (){
+		 //this.style.background = 'yellow';
+		 aimg.src = arr[this.index];
+		 for( var i=0;i<arr.length;i++){
+			 li[i].style.background = '#000';
+			 }
+			 this.style.background = 'yellow';
+		 }
+	 
+	 }
+ }
+ fn1();
+}
+</script>
+</head>
+
+<body>
+<div id="box">
+	<div id="main">
+    	<img src=""/>
+    </div>
+    <ul id="u">
+    	<li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+</body>
+</html>

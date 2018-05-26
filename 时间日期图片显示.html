@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+img{ width:100px; margin-left:10px;}
+</style>
+<script>
+window.onload = function (){
+ var oP = document.getElementsByTagName('p')[0];
+ var op1 = document.getElementsByTagName('p')[1];
+ var aImg = document.getElementsByTagName('img');
+ var Timer = null;
+ setInterval(fnTime,1000);
+ fnTime();
+ 
+ function fnTime(){
+	 
+	 var MyTime = new Date();
+	 
+	 var iYear = MyTime.getFullYear();
+	 var iMonth = MyTime.getMonth() + 1;
+	 var iDate = MyTime.getDate();
+	 var iDay = MyTime.getDay();	
+	 var iHours = MyTime.getHours();
+	 var iMin = MyTime.getMinutes();
+	 var iSec = MyTime.getSeconds(); 
+	 var st = '';
+	 var str = ''; 
+	 if(iDay==0)iDay = '星期日';
+	 if(iDay==1)iDay = '星期一';
+	 if(iDay==2)iDay = '星期二';
+	 if(iDay==3)iDay = '星期三';
+	 if(iDay==4)iDay = '星期四';
+	 if(iDay==5)iDay = '星期五';
+	 if(iDay==6)iDay = '星期六';
+	  
+	 str = iYear + '年 ' + iMonth +'月 '+ iDate +'日 '+  iDay + Two(iHours) +'点 '+ Two(iMin) +'分 '+ Two(iSec); 
+	 oP.innerHTML = str;
+	 
+	 st = Two(iHours) +':'+ Two(iMin) +':'+ Two(iSec);
+	 for( var i=0; i<aImg.length;i++){
+		 aImg[i].src = 'images/' +st.charAt(i)+ '.JPG';
+		 }
+	
+	 
+	 }
+ function Two(n){
+	 if(n<10){
+		 n = '0' + n;
+		 }else{
+			 n = '' + n;
+			 }return n;
+	 }
+}
+</script>
+</head>
+
+<body>
+<p style="font-size:60px;"></p>
+
+    <img src="images/0.JPG" />
+    <img src="images/0.JPG" />
+    <img src="images/colon.JPG"/>
+    <img src="images/0.JPG" />
+    <img src="images/0.JPG" />
+    <img src="images/colon.JPG" />
+    <img src="images/0.JPG" />
+    <img src="images/0.JPG" />
+
+    
+</body>
+</html>

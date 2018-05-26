@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+</style>
+<script>
+window.onload = function (){
+/*	var miaov = document.getElementById('miaov');
+	
+	setTimeout( function(){
+		miaov.style.display = 'inline-block';
+		
+		setTimeout(function(){
+			miaov.style.display = 'none';
+		}, 3000);
+		
+	},  2000);
+};*/
+ var aButton = document.getElementsByTagName('input');
+ var aImg = document.getElementsByTagName('img')[0];
+ var timer = null;
+ var i=0;
+ var arr = ['img/1.jpg','img/2.jpg','img/3.jpg','img/4.jpg'];
+ aButton[0].onclick = function (){
+	 clearInterval(timer);
+	 timer = setInterval(function(){	 
+		 aImg.src = arr[i%arr.length];
+ 		 i++;
+		 },500);
+	 }
+ aButton[1].onclick = function (){
+	 clearInterval(timer);
+	 }
+}
+</script>
+</head>
+
+<body>
+<div >
+<input type="button" value="开始换图" />
+<input type="button" value="停止" /></div>
+<img src="img/1.jpg" />
+
+</body>
+</html>
